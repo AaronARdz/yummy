@@ -1,0 +1,214 @@
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /** reset para REMS, - 62.5% = 10px de 16px.**/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+body{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+    background-color: var(--bg);
+    margin: 0;
+}
+:root {
+    --bg: #f7faff;
+    --primary: #efefff;
+    --beige: #534842;
+    --black: #111113;
+    --black-light:#676779;
+    --accent: #4264EB;
+    --accent-light: #7288e2;
+    --orange: #D9A371;
+    --orange-dark: #D8823C;
+    --danger:#DC3545;
+    --success: rgb(48, 155, 48);
+    --alert: #FFDE04;
+    --purple: #661FFF;
+    --aqua: #79D3CA;
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 3.4rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.6rem;
+}
+.text-lighter {
+    color: var(--black-light)!important;
+}
+
+.text-grey {
+    color: var(--primary)!important;
+}
+.text-accent {
+    color: var(--accent);
+}
+.tresd {
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: -12px -12px 12px 0 rgba(255,255,255,1),
+    12px 12px 12px 0 rgba(0,0,0,.03);
+    transition: transform .2s;
+}
+.tresd:hover {
+    transform: scale(1.01);
+}
+
+.btn-accent {
+    padding: 9px 25px;
+    background-color: var(--accent);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+    color: var(--primary);
+}
+.btn-accent:hover {
+    border: 2px solid var(--accent);
+    background-color: var(--primary);
+}
+.btn_ {
+    padding: 4px 20px;
+    font-weight: 500;
+    font-size: 14;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease 0s;
+    min-width: 64dp; 
+}
+.btn-auth {
+    background-color: var(--purple);
+    border: solid 1px var(--purple);
+    color: var(--primary);
+}
+.btn-auth:hover {
+    border: solid 1px var(--purple);
+    background-color: var(--primary);
+    color: var(--purple);
+}
+.btn-black {
+    background-color: var(--black);
+    border: solid 1px var(--black);
+    color: var(--primary);
+}
+.btn-black:hover {
+    border: solid 1px var(--black);
+    background-color: var(--primary);
+    color: var(--black);
+}
+.btn-beige {
+    background-color: var(--beige);
+    border: solid 1px var(--beige);
+    color: var(--primary);
+}
+.btn-beige:hover {
+    border: solid 1px var(--beige);
+    background-color: var(--primary);
+    color: var(--black);
+}
+.btn-delete {
+    background-color: var(--danger);
+    border: solid 1px var(--danger);
+    color: var(--primary);
+}
+.btn-delete:hover {
+    border: solid 1px var(--danger);
+    background-color: var(--primary);
+    color: var(--danger);
+}
+.btn-orange {
+    background-color: var(--orange);
+    border: solid 1px var(--orange);
+    color: var(--primary);
+}
+.btn-orange:hover {
+    transform: scale(1.01);
+}
+
+.fill__white svg {
+    fill: white;
+}
+.fill__white:hover svg{
+    fill: black;
+}
+.bg-test {
+    position: relative;
+    margin: 8px;
+    box-shadow:0px 0px 0 0 var(--orange),
+    12px 12px 12px 0 rgba(0,0,0,.03);;
+    top: -8px;
+    left: 10px;
+    transition: box-shadow .3s, left .3s, top .3s;
+}
+.bg-test:hover {
+    box-shadow:10px 10px 0 0 var(--orange);
+    top: 0;
+    left: 0;
+}
+.bg-test p {
+    padding: 16px;
+}
+.bg-test-green{
+    position: relative;
+    margin: 8px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0 -3px var(--accent),0px 0px 0 0 #009844,
+    -12px -12px 12px 0 rgba(255,255,255,1),
+    12px 12px 12px 0 rgba(0,0,0,.03);;
+    top: -8px;
+    left: 10px;
+    min-height: 52rem;
+    transition: box-shadow .3s, left .3s, top .3s;
+}
+.bg-test-green:hover {
+    box-shadow:10px 10px 0 0 #009844;
+    top: 0;
+    left: 0;
+}
+.bg-test-cursos {
+    position: relative;
+    margin: 8px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0 -3px var(--accent),0px 0px 0 0 #009844,
+    -12px -12px 12px 0 rgba(255,255,255,1),
+    12px 12px 12px 0 rgba(0,0,0,.03);;
+    top: -8px;
+    left: 10px;
+    transition: box-shadow .3s, left .3s, top .3s;
+}
+.bg-test-cursos:hover {
+    box-shadow:6px 6px 0 0 #009844;
+    top: 0;
+    left: 0;
+}
+
+.bg-test-green,.bg-test-cursos p {
+    padding: 16px;
+}
+
+@media (max-width: 576px) {
+    .mobile-margin-top {
+        margin-top: 2em;
+    }
+}
+.bg-white {
+    background-color: var(--primary)!important;
+    color: blue;
+}
+.show-graph {
+    display: none;
+}
+@media (max-width: 900px) {
+    .hide-graph {
+        display: none;
+    }
+    .show-graph {
+        display: contents;
+    }
+}
