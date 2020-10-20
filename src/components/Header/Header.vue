@@ -36,11 +36,15 @@ export default {
 }
 
 h1 {
+  margin-top: 100px ;
   font-weight: 700;
   font-size: 5em;
   color: #fff4f4;
   text-shadow: 0px 4px 4px rgba(1, 1, 1, 0.76);
 }
 
+.text-center{
+  margin-top: 160px;
+}
 
 </style>

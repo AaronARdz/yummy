@@ -1,21 +1,33 @@
 <template>
   <div id="app">
+    <app-nav></app-nav>
     <router-view />
   </div>
 </template>
 
-<style>
+<script>
+import Nav from "@/components/Header/Nav";
+
+export default {
+  components: {
+    appNav: Nav,
+
+  }
+}
+</script>
+
+
+<style scoped>
 #app {
+  margin-top: 0px;
   font-family: 'Fjalla One', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #232b2b;
 }
 
-#nav {
-  padding: 30px;
-}
 
 #nav a {
   font-weight: bold;

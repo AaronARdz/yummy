@@ -42,6 +42,7 @@
         
     }
 </script>
+
 <style scoped>
     .text-aqua p {
         color: var(--aqua)!important;

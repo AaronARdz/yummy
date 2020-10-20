@@ -1,6 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Nosotros from "@/views/Nosotros";
+import Productos from "@/views/Productos";
+import Contacto from "@/views/Contacto";
+import Carrito from "@/views/Carrito";
+import User from "@/views/User";
 
 Vue.use(VueRouter);
 
@@ -10,6 +15,36 @@ const routes = [
     name: "Home",
     component: Home
   },
+
+  {
+    path: "/Nosotros",
+    name: "Nosotros",
+    component: Nosotros
+  },
+
+  {
+    path: "/Productos",
+    name: "Productos",
+    component: Productos,
+  },
+
+  {
+    path: "/Cart",
+    name: "Carrito",
+    component: Carrito,
+  },
+  {
+    path: "/Contacto",
+    name: "Contacto",
+    component: Contacto,
+  },
+
+  {
+    path: "/User",
+    name: "Usuario",
+    component: User,
+  },
+
   {
     path: "/about",
     name: "About",
