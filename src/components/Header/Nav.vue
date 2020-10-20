@@ -1,5 +1,5 @@
 <template>
-    <header class="sticky-top">
+    <header class="sticky-top nav">
             <router-link to="/" v-if="!isMobile">
             <img class="logo" src="../../assets/img/logo.png" alt="logo Technobit">
             </router-link>
@@ -21,7 +21,7 @@
                         <a>Inicio</a>
                         </li>
                 </router-link>
-                <router-link to="/clientes">
+                <router-link to="/Nosotros">
                     <li @click="toggleMenu = false">
                         <a>Nosotros</a>
                         </li>
@@ -37,16 +37,16 @@
                     :class="{showDropdown: isDropped, show: isDropped}"
                     @mouseover="isDropped = true"
                     @mouseout="isDropped = false">
-                    <router-link to="/bi">
+                    <router-link to="/Productos">
                        <button class="dropdown-item" @click="toggleMobile"> Pasteles </button>
                     </router-link>
                     <div class="dropdown-divider"></div>
-                    <router-link to="/rpa"   >
+                    <router-link to="/Productos"   >
                     <button class="dropdown-item" @click="toggleMobile"> Rebanadas</button>
                        
                     </router-link>
                     <div class="dropdown-divider"></div>
-                    <router-link to="cursos">
+                    <router-link to="/Productos">
                         <button class="dropdown-item" @click="toggleMobile">
                             Especiales
                         </button>
@@ -54,12 +54,12 @@
                     </div>
                     </div>
                 </li>
-                <router-link to="/nosotros">
+                <router-link to="/Contacto">
                     <li @click="toggleMenu = false">
                         <a>Contacto</a>
                         </li>
                 </router-link>
-                <router-link to="/contact">
+                <router-link to="/Carrito">
                     <li @click="toggleMenu = false">
                         <a>Carrito</a>
                         </li>
@@ -156,8 +156,8 @@ header {
 
 .logo {
     cursor: pointer;
-    max-width: 100%;
-    height: 80px;
+    max-width: 60px;
+    height: auto;
 }
 .nav__links {
     list-style: none;
@@ -188,6 +188,9 @@ header {
 .dropdown-menu {
     background-color: transparent!important;
     border: none!important;
+}
+.nav {
+    background-color: var(--orange);
 }
 
 </style>

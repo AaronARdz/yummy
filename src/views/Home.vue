@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <app-nav></app-nav>
     <app-header></app-header>
     <app-novedades></app-novedades>
     <div class="bg-pasteles">
@@ -13,22 +12,20 @@
 
 <script>
 // @ is an alias to /src
-import Nav from "@/components/Header/Nav.vue";
+import Footer from "@/components/Body/Footer.vue";
 import Header from "@/components/Header/Header.vue";
 import Novedades from "@/components/Body/Novedades.vue"
 import Carousel from "@/components/Body/Carousel.vue"
 import masVendido from "@/components/Body/masVendido.vue"
-import Footer from "@/components/Body/Footer.vue"
 
 export default {
   name: "Home",
   components: {
-    appNav : Nav,
     appHeader : Header,
     appNovedades : Novedades,
     appCarousel: Carousel,
     appVendido : masVendido,
-    appFooter : Footer
+    appFooter : Footer,
   }
 };
 </script>
