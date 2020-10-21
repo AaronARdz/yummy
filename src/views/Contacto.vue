@@ -1,18 +1,22 @@
 <template>
-  <div class="Temporalmente">
-    Temporalmente fuera de servicio.
+  <div class="contacto">
+    <appFormulario></appFormulario>
   </div>
 </template>
 
 <script>
+import Formulario from "@/components/Contacto/Formulario.vue";
+
 export default {
-  name: "Carrito"
+  name: "Contacto",
+  components:{
+    appFormulario: Formulario,
+  }
 }
 </script>
 
 <style scoped>
-.Temporalmente{
-  font-size: 100px;
-  color: white;
+.contacto{
+  
 }
 </style>
