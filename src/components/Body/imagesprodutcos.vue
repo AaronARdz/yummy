@@ -1,112 +1,10 @@
 <template>
   <div class="container mt-4">
     <div class="row">
-      <div class="shopping">
-        <img
-          src="../../assets/img/pasteles/pastelaleman.png"
-          alt=""
-          width="300"
-          height="200"
-        />
-        <div class="desc">
-          <h4>Pastel alemán</h4>
-          <p>$250.00 MXN</p>
-        </div>
-      </div>
-      <div class="shopping">
-        <img
-          src="../../assets/img/pasteles/mostachon.png"
-          alt=""
-          width="300"
-          height="200"
-        />
-        <div class="desc">
-          <h4>Mostachón de fresa</h4>
-          <p>$275.00 MXN</p>
-        </div>
-      </div>
-      <div class="shopping">
-        <img
-          src="../../assets/img/pasteles/diplomatico.png"
-          alt=""
-          width="300"
-          height="200"
-        />
-        <div class="desc">
-          <h4>Diplomático</h4>
-          <p>$280.00 MXN</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="shopping">
-        <img
-          src="../../assets/img/pasteles/paytortuga.png"
-          alt=""
-          width="300"
-          height="200"
-        />
-        <div class="desc">
-          <h4>Pay tortuga</h4>
-          <p>$295.00 MXN</p>
-        </div>
-      </div>
-      <div class="shopping">
-        <img
-          src="../../assets/img/pasteles/rollomango.png"
-          alt=""
-          width="300"
-          height="200"
-        />
-        <div class="desc">
-          <h4>Rollo de mango</h4>
-          <p>$305.00 MXN</p>
-        </div>
-      </div>
-      <div class="shopping">
-        <img src="../../assets/img/pastel1.png"
-          alt=""
-          width="300"
-          height="200"
-        />
-        <div class="desc">
-          <h4>Pastel de chocolate</h4>
-          <p>$250.00 MXN</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="shopping">
-        <img src="../../assets/img/pastel2.png"
-            alt=""
-            width="300"
-            height="200"
-        />
-        <div class="desc">
-          <h4>Rebanada  de chocolate</h4>
-          <p>$50.00 MXN</p>
-        </div>
-      </div>
-      <div class="shopping">
-        <img src="../../assets/img/pastel3.png"
-            alt=""
-            width="300"
-            height="200"
-        />
-        <div class="desc">
-          <h4>Rebanada de pastel</h4>
-          <p>$50.00 MXN</p>
-        </div>
-      </div>
-      <div class="shopping">
-        <img src="../../assets/img/p-boda.png"
-             alt=""
-             width="300"
-             height="200"
-        />
-        <div class="desc">
-          <h4>Pastel de boda</h4>
-          <p>$400.00 MXN</p>
+      <div class="col-4 col-md-4" v-for="pastel in pasteles" :key="pastel.id">
+        <div class="pastel">
+          <img width="300" height="200" :src="require(`@/assets/img/pasteles/${pastel.img}`)" class="img-recipe"> <br>
+          <p class="desc">{{ pastel.name }}, {{ pastel.precio }}</p>
         </div>
       </div>
     </div>
@@ -114,8 +12,21 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-  name: "imagesprodutcos"
+  name: "imagesprodutcos",
+  data() {
+    return {
+      public_url:''
+    };
+  },
+  computed: {
+    ...mapState(['pasteles']),
+  },
+  created() {
+    console.log(this.pasteles)
+  },
+
 };
 </script>
 
@@ -123,14 +34,10 @@ export default {
 h4 {
   color: black;
 }
-.shopping {
-  width: 350px;
-  height: 250px;
+.pastel {
   background-color: #d9a371;
-  margin-right: 20px;
-  margin-bottom: 100px;
 }
 .desc {
-  background-color: #efe8e8;
+  background-color: silver;
 }
 </style>
