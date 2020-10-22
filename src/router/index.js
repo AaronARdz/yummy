@@ -37,10 +37,9 @@ const routes = [
     name: "Contacto",
     component: Contacto,
   },
-
   {
-    path: "/User",
-    name: "Usuario",
+    path: "/Login",
+    name: "Login",
     component: User,
   },
   {

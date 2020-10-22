@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import imagenesProductos from "@/components/Productos/imagenesProductos.vue";
+import ImagenesProductos from "@/components/Productos/ImagenesProductos.vue";
 
 
 export default {
     name: "Productos",
     components:{
-        appImages: imagenesProductos
+        appImages: ImagenesProductos
     }
 };
 </script>

@@ -64,6 +64,11 @@
                         <a>Carrito</a>
                         </li>
                 </router-link>
+                <router-link to="/Login">
+                    <li @click="toggleMenu = false">
+                        <a>Iniciar Sesión</a>
+                        </li>
+                </router-link>
             </ul>
         </nav>
         </div>
