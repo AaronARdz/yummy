@@ -6,6 +6,18 @@ import './assets/css/main.css';
 
 Vue.config.productionTip = false;
 
+import {auth} from './firebase'
+
+auth.onAuthStateChanged(user => {
+  if(user){
+    console.log(user)
+    store.dispatch('detectUser', {email: user.email, uid: user.uid})
+  }else{
+    console.log(user)
+    store.dispatch('detectUser', user)
+  }
+})
+
 new Vue({
   router,
   store,

@@ -3,62 +3,87 @@
     <div class="row">
       <div class="col">
         <h1>Iniciar sesion</h1><br>
-        <form>
+        <form @submit.prevent="userLogin({email:login.email, password:login.pass})">
             <div class="form-group">
                 <label for="username">Correo Electronico</label>
-                <input class="sizebox form-control" type="text" placeholder="Ingresa tu correo">
+                <input class="sizebox form-control" type="text" placeholder="Ingresa tu correo" v-model="login.email">
 
-                <label for="password">Nombre de usuario</label>
-                <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña">
+                <label for="password">pass</label>
+                <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña" v-model="login.pass">
                 <br>
-                <input class="btntype" type="submit" value="Iniciar sesion"><br> 
-                <input class="btntypef" type="submit" value="Iniciar sesion con Facebook"><br>
-                <input class="btntypeg" type="submit" value="Iniciar sesion con Gmail"><br><br><br>       
+                <button type="submit" class="btn_ btn-black">Acceder</button>
+                <p>{{login.email}}</p>
+                <p>{{login.pass}}</p>
+                <p>{{error}}</p>
             </div>
-           
         </form>
       </div>
-      <div class="col">
-        <h1>Registro de Usuario</h1>
-        <form>
-            <div class="form-group">
-                <label for="username">Nombre cliente</label><br>
-                <input class="sizebox form-control" type="text" placeholder="Ingresa tus datos">
-                <label for="direccion">Direccion</label><br>
-                <input class="sizebox form-control" type="text" placeholder="Ingresa direccion para envios">
-                <label for="email">Correo electronico</label><br>
-                <input class="sizebox form-control" type="email" placeholder="Ingresa tu correo">
-                <label for="email2">Confirmacion correo electronico</label><br>
-                <input class="sizebox form-control" type="email" placeholder="Confirma tu correo">
-                <label for="password">Contraseña</label><br>
-                <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña">
-                <label for="password2">Confirmacion de contraseña</label><br>
-                <input class="sizebox form-control" type="password" placeholder="Confirma tu contraseña">
-                <br>
-               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Masculino</label>
+      <div class="row">
+        <div class="col">
+          <h1>Iniciar sesion</h1><br>
+            <form  @submit.prevent="createUser({email: email, password: pass1})">
+                <div class="form-group">
+                    <label for="username">Correo Electronico</label>
+                    <input class="sizebox form-control" type="text" placeholder="Ingresa tu correo" v-model="email">
+
+                    <label for="password">pass</label>
+                    <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña" v-model="pass1">
+
+                    <label for="password">confirm pass</label>
+                    <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña" v-model="pass2">
+                    <br>
+                    <button type="submit" class="btn_ btn-black" :disabled='!disable'>Registrarse </button>
                 </div>
-                <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Femenino</label>
-                </div>
-                <br><br>
-                <label for="fechanacimiento">Fecha de nacimiento</label>
-                <input type="date">
-                <input class="btntype" type="submit" value="Registrarse"><br><br>
-            </div>
-         
-        </form>
+            </form>
+          </div>
       </div>
     </div>
+    <p class="text-danger">{{error}}</p>
+      <div class="row">
+        <div class="col">
+          <p class="text-success">{{email}}</p>
+          <p class="text-success">{{pass1}}</p>
+          <p class="text-success">{{pass2}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn_ btn-beige" @click="logout()">Cerrar sesion</button>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "Login"
-};
+import { mapActions, mapState } from 'vuex';
+
+  export default {
+      name: "Login",
+      data() {
+        return {
+          email: '',
+          pass1: '',
+          pass2: '',
+          login: {
+            user: '',
+            pass: '',
+          }
+        }
+      },
+      created() {
+        console.log("created component")
+      },
+      methods: {
+        ...mapActions(['createUser','userLogin','logout'])
+      },
+      computed: {
+        ...mapState(['error']),
+        disable() {
+          return this.pass1 === this.pass2 && this.pass1.trim() !== '';
+        }
+      }
+  };
+
 </script>
 
 <style scoped>
@@ -73,31 +98,7 @@ h1 {
 .sizebox{
   width: 450px;
 }
-.btntype{
-  width: 250px;
-  border-radius: 30px;
-  background: #d9a371;
-  color: white;
-}
-.btntypef{
-  width: 250px;
-  border-radius: 30px;
-  background: blue;
-  color: white;
-}
-.btntypeg{
-  width: 250px;
-  border-radius: 30px;
-  background: red;
-  color: white;
-  margin-top: 10px;
-}
 
-p{
-  text-align:left;
-  margin-right: 0px;
-  margin-bottom: 100px;
-}
 .form-group label {
     margin-right: auto!important;
 }

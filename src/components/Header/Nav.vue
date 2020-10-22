@@ -64,9 +64,14 @@
                         <a>Carrito</a>
                         </li>
                 </router-link>
-                <router-link to="/Login">
+                <router-link to="/Login" v-if="!user">
                     <li @click="toggleMenu = false">
                         <a>Iniciar Sesión</a>
+                        </li>
+                </router-link>
+                <router-link to="/auth" v-if="user">
+                    <li @click="toggleMenu = false">
+                        <a>Home</a>
                         </li>
                 </router-link>
             </ul>
@@ -78,6 +83,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
     data() {
         return {
@@ -100,6 +107,7 @@ export default {
         })
     },
     computed: {
+        ...mapState(['user']),
         isMobile() {
             return this.windowWidth <= 768
         }

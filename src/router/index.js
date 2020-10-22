@@ -6,6 +6,7 @@ import Productos from "@/views/Productos";
 import Contacto from "@/views/Contacto";
 import Carrito from "@/views/Carrito";
 import User from "@/views/User";
+import AuthHome from "@/components/Auth/AuthHome.vue";
 
 Vue.use(VueRouter);
 
@@ -41,6 +42,11 @@ const routes = [
     path: "/Login",
     name: "Login",
     component: User,
+  },
+  {
+    path: "/auth",
+    name: "auth",
+    component: AuthHome
   },
   {
     path: "/about",
