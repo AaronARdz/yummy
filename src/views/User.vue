@@ -1,8 +1,6 @@
 <template>
 <div>
-  <div class="background">
-    <app-login></app-login>
-  </div>
+  <app-login></app-login>
   <app-footer></app-footer>
 </div>
 
@@ -25,8 +23,5 @@ export default {
   .Temporalmente{
     font-size: 100px;
     color: white;
-  }
-  .background{
-    background-color: whitesmoke;
   }
 </style>
