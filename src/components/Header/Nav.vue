@@ -26,11 +26,34 @@
                         <a>Nosotros</a>
                         </li>
                 </router-link>
-              <router-link to="/Productos">
-                <li @click="toggleMenu = false">
-                  <a>Productos</a>
+                <li class="list-group list-group-flush">
+                    <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" role="button"
+                    @mouseover="isDropped = true"
+                    @click="isDropped = !isDropped">
+                        Productos
+                    </a>
+                    <div class="dropdown-menu dropdown-links"
+                    :class="{showDropdown: isDropped, show: isDropped}"
+                    @mouseover="isDropped = true"
+                    @mouseout="isDropped = false">
+                    <router-link to="/Productos">
+                       <button class="dropdown-item" @click="toggleMobile"> Pasteles </button>
+                    </router-link>
+                    <div class="dropdown-divider"></div>
+                    <router-link to="/Productos"   >
+                    <button class="dropdown-item" @click="toggleMobile"> Rebanadas</button>
+                       
+                    </router-link>
+                    <div class="dropdown-divider"></div>
+                    <router-link to="/Productos">
+                        <button class="dropdown-item" @click="toggleMobile">
+                            Especiales
+                        </button>
+                    </router-link>
+                    </div>
+                    </div>
                 </li>
-              </router-link>
                 <router-link to="/Contacto">
                     <li @click="toggleMenu = false">
                         <a>Contacto</a>
@@ -38,17 +61,17 @@
                 </router-link>
                 <router-link to="/Carrito">
                     <li @click="toggleMenu = false">
-                      <a><img src="../../assets/img/CART.png" width="40" height="40" /></a>
+                        <a>Carrito</a>
                         </li>
                 </router-link>
                 <router-link to="/Login" v-if="!user">
                     <li @click="toggleMenu = false">
-                      <a><img src="../../assets/img/user.png" width="40" height="40" /></a>
+                        <a>Iniciar Sesión</a>
                         </li>
                 </router-link>
                 <router-link to="/auth" v-if="user">
                     <li @click="toggleMenu = false">
-                      <a><img src="../../assets/img/home.png" width="40" height="40" /></a>
+                        <a>Home</a>
                         </li>
                 </router-link>
             </ul>
@@ -180,7 +203,7 @@ header {
     border: none!important;
 }
 .nav {
-    background-color:#232b2b ;
+    background-color: var(--orange);
 }
 
 </style>

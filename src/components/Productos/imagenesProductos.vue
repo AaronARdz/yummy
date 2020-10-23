@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-4 col-md-4" v-for="pastel in pasteles" :key="pastel.id">
         <div class="pastel">
-          <img width="300" height="200" :src="require(`@/assets/img/pasteles/${pastel.img}`)" class="img-recipe" alt="Productos"> <br>
+          <img width="300" height="200" :src="require(`@/assets/img/pasteles/${pastel.img}`)" class="img-recipe"> <br>
           <p class="desc">{{ pastel.name }}, {{ pastel.precio }}</p>
         </div>
       </div>
@@ -36,6 +36,6 @@ h4 {
   background-color: #d9a371;
 }
 .desc {
-  background-color: antiquewhite;
+  background-color: silver;
 }
 </style>
