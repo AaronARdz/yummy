@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
   .home {
-    background-image: url('../assets/img/bg-pastel.png');
+    background-image: url('../assets/img/cake.gif');
     background-color:rgba(0, 0, 0, 0.2);
     background-size: cover;
     max-width: 100%;

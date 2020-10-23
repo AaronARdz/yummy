@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <br />
-    <h1 class="Titulo">Contactanos</h1>
+    <h1 class="Titulo">Contacto</h1>
+    <br><br>
   </div>
 </template>
 
@@ -17,8 +18,10 @@ export default {
 
 <style scoped>
 .Titulo {
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+
 }
 h1 {
   text-align: center;
