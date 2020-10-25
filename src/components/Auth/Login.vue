@@ -20,7 +20,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <h1>Iniciar sesion</h1><br>
+          <h1>Registrarse</h1><br>
             <form  @submit.prevent="createUser({email: email, password: pass1})">
                 <div class="form-group">
                     <label for="username">Correo Electronico</label>
@@ -48,7 +48,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <button class="btn_ btn-beige" @click="logout()">Cerrar sesion</button>
+          <button class="btn_ btn-delete mb-2" @click="logout()" v-if="user">Cerrar sesion</button>
         </div>
       </div>
   </div>
@@ -77,7 +77,7 @@ import { mapActions, mapState } from 'vuex';
         ...mapActions(['createUser','userLogin','logout'])
       },
       computed: {
-        ...mapState(['error']),
+        ...mapState(['error', 'user']),
         disable() {
           return this.pass1 === this.pass2 && this.pass1.trim() !== '';
         }
