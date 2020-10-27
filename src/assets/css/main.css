@@ -92,11 +92,23 @@ h4{
     background-color: var(--primary);
     color: var(--purple);
 }
+.btn-blue {
+    background-color: var(--accent);
+    border: solid 1px var(--accent);
+    color: var(--primary);
+}
+.btn-blue:hover {
+    border: solid 1px var(--accent-light);
+    background-color: var(--accent-light);
+    color: var(--primary);
+}
+
 .btn-black {
     background-color: var(--black);
     border: solid 1px var(--black);
     color: var(--primary);
 }
+
 .btn-black:hover {
     border: solid 1px var(--black-light);
     background-color: var(--black-light);
@@ -158,7 +170,7 @@ h4{
     position: relative;
     margin: 8px;
     border-radius: 20px;
-    box-shadow: 0px 0px 0 -3px var(--accent),0px 0px 0 0 #717ad9,
+    box-shadow: 0px 0px 0 -3px var(--accent),0px 0px 0 0 #D9A371,
     -12px -12px 12px 0 rgba(255,255,255,1),
     12px 12px 12px 0 rgba(0,0,0,.03);;
     top: -8px;
@@ -167,7 +179,7 @@ h4{
     transition: box-shadow .3s, left .3s, top .3s;
 }
 .producto-pastel:hover {
-    box-shadow:10px 10px 0 0 #717ad9;
+    box-shadow:10px 10px 0 0 #D9A371;
     cursor: pointer;
     top: 0;
     left: 0;

@@ -16,21 +16,23 @@ export default new Vuex.Store({
         id: 1,
         name: "Pastel Aleman",
         price: "$250.00",
+        quantity: 1,
         category: '',
         img: "pastelaleman.png"
       },
-      { id: 2, name: "Mostachón de fresa", price: "$275.00",category: '', img: 'mostachon.png'},
-      { id: 3, name: "Diplomático", price: "$280.00",category: '', img: 'diplomatico.png'},
-      { id: 4, name: "Pay Tortuga", price: "$295.00" ,category: '', img: 'paytortuga.png'},
-      { id: 5, name: "Rollo Mango", price: "$305.00" ,category: '', img: 'rollomango.png'},
-      { id: 6, name: "Pastel de chocolate", price: "$275.00",category: '', img: 'pastel1.png' },
-      { id: 7, name: "Rebanada de chocolate", price: "$50.00" ,category: '', img: 'pastel2.png'},
-      { id: 8, name: "Rebanada de pastel", price: "$50.00",category: '', img: 'pastel3.png'},
-      { id: 9, name: "Pastel de bodas", price: "$450.00" ,category: '', img: 'p-boda.png'}
+      { id: 2, name: "Mostachón de fresa",quantity: 1, price: "$275.00",category: '', img: 'mostachon.png'},
+      { id: 3, name: "Diplomático",quantity: 1, price: "$280.00",category: '', img: 'diplomatico.png'},
+      { id: 4, name: "Pay Tortuga",quantity: 1, price: "$295.00" ,category: '', img: 'paytortuga.png'},
+      { id: 5, name: "Rollo Mango",quantity: 1, price: "$305.00" ,category: '', img: 'rollomango.png'},
+      { id: 6, name: "Pastel de chocolate",quantity: 1,price: "$275.00",category: '', img: 'pastel1.png' },
+      { id: 7, name: "Rebanada de chocolate",quantity: 1, price: "$50.00" ,category: '', img: 'pastel2.png'},
+      { id: 8, name: "Rebanada de pastel",quantity: 1, price: "$50.00",category: '', img: 'pastel3.png'},
+      { id: 9, name: "Pastel de bodas",quantity: 1, price: "$450.00" ,category: '', img: 'p-boda.png'}
     ],
     pastel : {
       id: '',
       name: '',
+      quantity: 1,
       category: '',
       price: '',
       img: '',
@@ -61,15 +63,16 @@ export default new Vuex.Store({
       console.log(payload);
       state.text = payload.toLowerCase();
     },
-    addPastel({commit, state}, pastel) {
+    addPastel({commit, state},pastel) {
       commit('loadFirebase', true);
+      state.pastel = pastel
+      console.log(state.pastel)
       db.collection(state.user.email).add({
-        pastel : pastel
+        pastel : state.pastel
       })
       .then(doc => {
         commit('loadFirebase', false);
         console.log("added" + doc.id)
-        router.push('/')
       })
     },
     deletePastel({state}, id) {
@@ -106,7 +109,7 @@ export default new Vuex.Store({
         commit('setPastel', pastel)
       })
     },
-    createUser({commit, state}, user) {
+    createUser({commit}, user) {
         auth.createUserWithEmailAndPassword(user.email, user.password)
         .then(res => {
           console.log(res)
@@ -115,15 +118,11 @@ export default new Vuex.Store({
             uid: res.user.uid,
             password: res.user.password
           }
-          db.collection(res.user.email).add({
-            pastel: state.pastel
-          }).then(() => {
             commit('setUser', user)
             router.push('/')
-          }).catch(error => {
-            console.log(error)
-            commit('setError', error)
-          }).catch(error => console.log(error))
+        }).catch(error => {
+          console.log(error)
+          commit('setError', error)
         })
       },
     userLogin({commit}, user){

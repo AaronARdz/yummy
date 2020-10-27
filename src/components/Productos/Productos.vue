@@ -5,22 +5,26 @@
       <div class="busqueda">
         <textarea rows="1" cols="130"></textarea>
       </div>
-      <div class="Images">
-        <app-images></app-images>
-      </div>
+        <div class="row">
+            <app-images :cake="pastel" v-for="pastel in pasteles" :key="pastel.id"></app-images>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
 import ImagenesProductos from "@/components/Productos/ImagenesProductos.vue";
-
+import {mapState} from 'vuex'
 
 export default {
     name: "Productos",
     components:{
         appImages: ImagenesProductos
-    }
+    },
+      computed: {
+    ...mapState(['pasteles','loading']),
+
+  },
 };
 </script>
 

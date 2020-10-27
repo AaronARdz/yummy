@@ -1,44 +1,58 @@
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-4 col-md-4 mobile-margin-top" v-for="pastel in pasteles" :key="pastel.id" >
-          <div class="producto-pastel" >
+      <div class="col-4 col-md-4 mobile-margin-top" >
+          <div class="producto-pastel mt-4" >
             <div class="text-center">
-                <img :src="require(`@/assets/img/pasteles/${pastel.img}`)"  alt="" class="img__services mx-auto">
-                <h3 class="align-middle m-4">{{ pastel.name }}</h3>
+                <img :src="require(`@/assets/img/pasteles/${cake.img}`)"  alt="" class="img__services mx-auto">
+                <h3 class="align-middle m-4">{{ cake.name }}</h3>
             </div>
             <p class="text-left text-muted ">
-              precio: {{ pastel.price }}
+              precio: {{ cake.price }}
             </p>
             <p class="text-left text-muted ">
               personas: 12
             </p>
-            <div >
-              <button class="btn_ btn-black mt-2 mb-4 ml-auto"
-              @click="addPastel(pastel)"
-              >Agregar al carrito
+                <label for="quantity">Quantity</label>
+                <input :placeholder="cake.quantity" v-model="cantidad" >
+                <div >
+                <button class="btn_ btn-blue mt-2 mb-4 ml-auto"
+                @click="addCantidad(cake)"
+                >Agregar al carrito
                 <img class="ml-2 cart" src="@/assets/img/shopcart.png" alt=""> </button>
-            </div>         
+            </div>        
           </div>
         </div>
-    </div>
-  </div>
 </template>
 
 <script>
 import {mapState, mapActions} from 'vuex'
 export default {
+  props: {
+    cake : {
+      id: '',
+      name: '',
+      quantity: 1,
+      category: '',
+      price: '',
+      img: '',
+    },
+  },
   name: "imagenesProductos",
   data() {
     return {
-      pastel: Object
+      cantidad : 1
     };
   },
   methods: {
-    ...mapActions(['addPastel'])
+    ...mapActions(['addPastel']),
+      addCantidad(pastel) {
+      this.pastel = pastel
+      this.pastel.quantity = this.cantidad
+      this.addPastel(pastel)
+    }
   },
   computed: {
     ...mapState(['pasteles','loading']),
+
   },
   created() {
     console.log(this.pasteles)
@@ -57,7 +71,7 @@ export default {
 }
 }
 button {
-  padding: 14px;
+  padding: 10px;
 }
 h4 {
   color: black;
