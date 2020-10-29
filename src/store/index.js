@@ -49,7 +49,7 @@ export default new Vuex.Store({
       state.error = payload
     },
     setCarrito(state,payload) {
-      state.shoppingCart = payload
+      state.carrito = payload;
     },
     loadFirebase(state, payload) {
       state.loading = payload
@@ -67,6 +67,7 @@ export default new Vuex.Store({
       commit('loadFirebase', true);
       state.pastel = pastel
       console.log(state.pastel)
+      
       db.collection(state.user.email).add({
         pastel : state.pastel
       })
@@ -82,20 +83,36 @@ export default new Vuex.Store({
         this.dispatch('getJobs')
       })
     },
+    getPasteles({commit,state}) {
+      commit('loadFirebase', true);
+      const jobs = []
+      console.log(state.user.email + 'email')
+      db.collection(state.user.email).get()
+      .then(res => {
+        res.forEach(doc => {
+          let job = doc.data().pastel
+          console.log(job)
+          job.id = doc.id
+          jobs.push(job)
+        })
+        commit('loadFirebase', false);
+        commit('setCarrito', jobs)
+      })
+    },
     getCarrito({commit, state},){
       commit('loadFirebase', true);
       const pasteles = []
       db.collection(state.user.email).get()
       .then(res => {
         res.forEach(doc => {
-          let pastel = doc.data()
+          let pastel = doc.data().pastel
           pastel.id = doc.id
+          console.log('data' + pastel)
           pasteles.push(pastel)
         })
         setTimeout(() => {
           commit('loadFirebase', false);
         }, 2000)
-        
         commit('setCarrito', pasteles)
       })
     },
@@ -165,7 +182,17 @@ export default new Vuex.Store({
           filteredSearch.push(pastel)
         }
       }
-      return filteredSearch
+      return filteredSearch;
+    },
+    carritoArray(state) {
+      let filteredSearch = []
+      for (let pastel of state.carrito) {
+        let name  = pastel.name.toLowerCase();
+        if(name.indexOf(state.text) >= 0) {
+          filteredSearch.push(pastel)
+        }
+      }
+      return filteredSearch;
     }
   },
   modules: {}

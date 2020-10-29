@@ -3,20 +3,25 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import './assets/css/main.css';
+import {auth} from './firebase'
+Vue.use(router);
 
 Vue.config.productionTip = false;
 
-import {auth} from './firebase'
 
 auth.onAuthStateChanged(user => {
-  if(user){
-    console.log(user)
-    store.dispatch('detectUser', {email: user.email, uid: user.uid})
-  }else{
-    console.log(user)
+  if(user) {
+    const userDetected = {
+      email: user.email,
+      uid: user.uid
+    }
+    store.dispatch('detectUser', userDetected)
+  } else {
+    console.log('user' + user)
     store.dispatch('detectUser', user)
   }
 })
+
 
 new Vue({
   router,
