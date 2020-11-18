@@ -12,9 +12,6 @@
                 <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña" v-model="login.pass">
                 <br>
                 <button type="submit" class="btn_ btn-black">Acceder</button>
-                <p>{{login.email}}</p>
-                <p>{{login.pass}}</p>
-                <p>{{error}}</p>
             </div>
         </form>
       </div>

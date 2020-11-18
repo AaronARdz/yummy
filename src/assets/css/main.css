@@ -175,7 +175,7 @@ h4{
     12px 12px 12px 0 rgba(0,0,0,.03);;
     top: -8px;
     left: 10px;
-    min-height: 30rem;
+    min-height: 35rem;
     transition: box-shadow .3s, left .3s, top .3s;
 }
 .producto-pastel:hover {

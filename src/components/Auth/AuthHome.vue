@@ -21,37 +21,38 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from "vuex";
+import { mapState,mapActions, mapGetters } from 'vuex'
 import Carrito from "@/components/Carrito/Carrito";
 
 export default {
-  name: "AuthHome",
+    name: 'AuthHome',
   components: {
-    appCarrito: Carrito
+      appCarrito:Carrito,
   },
 
-  computed: {
-    ...mapState(["user", "carrito", "shoppingCart", "pastel"]),
-    ...mapGetters(["carritoArray"])
-  },
-  methods: {
-    ...mapActions([
-      "logout",
-      "getCarrito",
-      "finder",
-      "getPasteles",
-      "getPastel"
-    ])
-  },
-  created() {
-    this.getPasteles();
-  }
-};
+  computed:{
+        ...mapState(['user','carrito','shoppingCart', 'pastel']),
+        ...mapGetters(['carritoArray'])
+    },
+     methods: {
+        ...mapActions(['logout','getCarrito','finder','getPasteles', 'getPastel'])
+
+    },
+    created() {
+      this.getPasteles()
+    }
+    }
 </script>
 
-<style>
-h1{
-  border-bottom: #2c3e50 5px;
+<style scoped>
+.img__services {
+    max-width: 250px;
+    margin-top: 2em;
+}
 
+@media (max-width: 576px) {
+    .img__services {
+    max-width: 200px;
+}
 }
 </style>
