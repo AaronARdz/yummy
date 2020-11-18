@@ -7,11 +7,10 @@
             <button class="btn_ btn-blue" @click="getPastel(parametro)">
               getPastel
             </button>
-            <p>{{pastel}}</p>
           </div>
         </div>
         <div class="row">
-            <div class="col">
+             <div class="col">
               <button class="btn_ btn-delete" @click="logout()" v-if="user">Cerrar sesion</button>
             </div>
         </div>
@@ -22,14 +21,28 @@
             <button class="btn_ btn-black d-inline">Buscar</button>
         </form>
 
-        <div class="row">
-          <div class="col">
-            <div v-for="pastel in carritoArray" :key="pastel.id">
-              <p>{{pastel.name}}</p>
-              <p>{{pastel.quantity}}</p>
+        <div class="row mt-5">
+          <div class="col-4 col-md-4 mobile-margin-top" v-for="pastel in carritoArray" :key="pastel.id" >
+          <div class="producto-pastel mt-4" >
+            <div class="text-center">
+                <img :src="require(`@/assets/img/pasteles/${pastel.img}`)"  alt="" class="img__services mx-auto">
+                <h3 class="align-middle m-4">{{ pastel.name }}</h3>
             </div>
+            <p class="text-left text-muted ">
+              precio: {{ pastel.price }}
+            </p>
+            <p class="text-left text-muted ">
+              personas: 12
+            </p>
+            <p class="text-left text-muted ">
+              cantidad : {{pastel.quantity}}
+            </p>
+                <div >
+            </div>        
           </div>
         </div>
+        </div>
+
     </div>
 </template>
 
@@ -66,3 +79,16 @@ export default {
     }
     }
 </script>
+
+<style scoped>
+.img__services {
+    max-width: 250px;
+    margin-top: 2em;
+}
+
+@media (max-width: 576px) {
+    .img__services {
+    max-width: 200px;
+}
+}
+</style>
