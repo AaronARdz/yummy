@@ -5,7 +5,9 @@
         <div class="align-middle text-center">
           <div class="mt-5 ">
             <div class="w-100 header__text mt-5">
-              <h1 class="mt-5 pt-5">Que se te antoja?</h1>
+              <div class="header__text">
+                <h1 class="mt-5 pt-5">Que se te antoja?</h1>
+              </div>
             </div>
           </div>
         </div>
@@ -39,5 +41,8 @@ h1 {
   font-size: 5em;
   color: #fff4f4;
   text-shadow: 0px 4px 4px rgba(1, 1, 1, 0.76);
+}
+.header__text{
+  margin-top: 150px;
 }
 </style>
