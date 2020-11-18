@@ -67,7 +67,6 @@ export default new Vuex.Store({
       commit('loadFirebase', true);
       state.pastel = pastel
       console.log(state.pastel)
-      
       db.collection(state.user.email).add({
         pastel : state.pastel
       })
