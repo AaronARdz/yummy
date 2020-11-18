@@ -1,18 +1,23 @@
 <template>
-    <div class="container">
-        <h1>Ruta protegida</h1>
-        <p>{{user.email}}</p>
-        <div class="row">
-          <div class="col">
-          </div>
-        </div>
-        <div class="row">
-            <div class="col">
-              <button class="btn_ btn-delete" @click="logout()" v-if="user">Cerrar sesion</button>
-            </div>
-          <app-carrito></app-carrito>
+  <div class="container">
+    <br>
+    <div class="usuario">
+      <h1>Ruta protegida</h1>
+      <p>Inicio sesion: {{ user.email }}</p>
+      <div class="row">
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>¿No es tu cuenta?</p>
+          <button class="btn_ btn-delete" @click="logout()" v-if="user">
+            Cerrar sesion
+          </button>
         </div>
     </div>
+    </div>
+    <app-carrito></app-carrito>
+  </div>
 </template>
 
 <script>
@@ -38,3 +43,16 @@ export default {
     }
     }
 </script>
+
+<style scoped>
+.img__services {
+    max-width: 250px;
+    margin-top: 2em;
+}
+
+@media (max-width: 576px) {
+    .img__services {
+    max-width: 200px;
+}
+}
+</style>
