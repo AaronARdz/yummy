@@ -166,7 +166,7 @@ header {
 
 
 .nav {
-  background-color: #2c3e50;
+  background-color:#232b2b ;
 }
 
 
