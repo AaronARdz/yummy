@@ -140,9 +140,7 @@ header {
     }
 
 }
-.hidden {
-    display: none;
-}
+
 
 .logo {
     cursor: pointer;
@@ -165,22 +163,11 @@ header {
     color: var(--orange);
     background: none!important;
 }
-.dropdown-links button {
-    margin: 10px
-}
-.show-dropdown {
-    position: absolute; 
-    transform: translate3d(0px, 58px, 0px);
-    top: 0px; 
-    left: 0px;
-    will-change: transform;
-}
-.dropdown-menu {
-    background-color: transparent!important;
-    border: none!important;
-}
+
+
 .nav {
-    background-color: var(--orange);
+  background-color: #2c3e50;
 }
+
 
 </style>

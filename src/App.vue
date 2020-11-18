@@ -1,18 +1,20 @@
 <template>
   <div id="app">
+    <div class="background_header">
       <app-nav></app-nav>
-     <router-view></router-view>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Nav from "@/components/Header/Nav.vue";
 
-  export default {
-    components: {
-      appNav: Nav,
-    }
+export default {
+  components: {
+    appNav: Nav,
   }
+}
 </script>
 
 <style>
@@ -23,5 +25,7 @@ import Nav from "@/components/Header/Nav.vue";
   text-align: center;
   color: #2c3e50;
 }
+
+
 
 </style>
