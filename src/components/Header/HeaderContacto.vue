@@ -17,8 +17,8 @@ export default {
 
 <style scoped>
 .Titulo {
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 h1 {
   text-align: center;

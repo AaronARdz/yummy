@@ -38,13 +38,6 @@
     <p class="text-danger">{{error}}</p>
       <div class="row">
         <div class="col">
-          <p class="text-success">{{email}}</p>
-          <p class="text-success">{{pass1}}</p>
-          <p class="text-success">{{pass2}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
           <button class="btn_ btn-delete mb-2" @click="logout()" v-if="user">Cerrar sesion</button>
         </div>
       </div>
@@ -75,6 +68,7 @@ import { mapActions, mapState } from 'vuex';
       },
       computed: {
         ...mapState(['error', 'user']),
+
         disable() {
           return this.pass1 === this.pass2 && this.pass1.trim() !== '';
         }
@@ -84,9 +78,14 @@ import { mapActions, mapState } from 'vuex';
 </script>
 
 <style scoped>
+p{
+  color: whitesmoke;
+}
+
 h1 {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 30px;
+  margin-left: 65px;
   color: #d9a371;
 }
 .text-aqua p {
@@ -97,11 +96,23 @@ h1 {
 }
 
 .form-group label {
-    margin-right: auto!important;
+  margin-right: auto!important;
 }
 input, textarea {
-    padding: 10px 10px!important;
-    margin: 2px 0;
-    font-size: .9em;
+  padding: 10px 10px!important;
+  margin: 2px 0;
+  font-size: .9em;
+}
+
+.background{
+  width: 600px;
+  height: 450px;
+  margin-bottom: 100px;
+}
+.form-group{
+  margin-left: 70px;
+}
+.text{
+  margin-right: 70px;
 }
 </style>
