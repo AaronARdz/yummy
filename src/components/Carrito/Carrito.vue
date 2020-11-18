@@ -13,12 +13,11 @@
           <div class="col">
             <h2>PRODUCTOS</h2>
             <br />
-            <div v-for="pastel in carritoArray" :key="pastel.id">
-              <button @click="deletePastel(pastel.id)">
-                <router-link to="/auth">Eliminar</router-link>
-              </button>
+            <div class="col"   v-for="pastel in carritoArray" :key="pastel.id">
+              <button @click="deletePastel(pastel.id)"><router-link to="/auth">Eliminar</router-link></button>
               <p>{{ pastel.name }}</p>
             </div>
+
           </div>
           <div class="col">
             <h2>CANTIDAD</h2>
