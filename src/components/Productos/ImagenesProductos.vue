@@ -48,6 +48,7 @@ export default {
       this.pastel = pastel
       this.pastel.quantity = this.cantidad
       this.addPastel(pastel)
+        alert("Se agrego el producto al carrito");
     }
   },
   computed: {

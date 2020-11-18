@@ -41,13 +41,6 @@
     <p class="text-danger">{{error}}</p>
       <div class="row">
         <div class="col">
-          <p class="text-success">{{email}}</p>
-          <p class="text-success">{{pass1}}</p>
-          <p class="text-success">{{pass2}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
           <button class="btn_ btn-delete mb-2" @click="logout()" v-if="user">Cerrar sesion</button>
         </div>
       </div>
@@ -78,6 +71,7 @@ import { mapActions, mapState } from 'vuex';
       },
       computed: {
         ...mapState(['error', 'user']),
+
         disable() {
           return this.pass1 === this.pass2 && this.pass1.trim() !== '';
         }
