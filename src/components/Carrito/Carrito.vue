@@ -12,26 +12,37 @@
         <div class="row">
           <div class="col">
             <h2>PRODUCTOS</h2>
-            <br />
-            <div class="col"   v-for="pastel in carritoArray" :key="pastel.id">
-              <button @click="deletePastel(pastel.id)"><router-link to="/auth">Eliminar</router-link></button>
-              <p>{{ pastel.name }}</p>
-            </div>
-
           </div>
           <div class="col">
             <h2>CANTIDAD</h2>
-            <br />
-            <div v-for="pastel in carritoArray" :key="pastel.id">
+          </div>
+          <div class="col">
+            <h2>PRECIO</h2>
+          </div>
+          <div class="col">
+
+          </div>
+        </div>
+        <div class="row mt-2" v-for="pastel in carritoArray" :key="pastel.id">
+          <div class="col">
+            <div>
+              <p  class="d-inline">{{ pastel.name }}</p>
+            </div>
+          </div>
+          <div class="col">
+            <div>
               <p>{{ pastel.quantity }}</p>
             </div>
           </div>
           <div class="col">
-            <h2>PRECIO</h2>
-            <br />
-            <div v-for="pastel in carritoArray" :key="pastel.id">
-              <p>{{ pastel.price }}</p>
+            <div >
+              <p>${{ pastel.price.replace("$","") * pastel.quantity }}</p>
             </div>
+          </div>
+          <div class="col">
+            <router-link to="/auth">
+              <button  class="d-inline btn_ btn-delete ml-2" @click="deletePastel(pastel.id)">x</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -99,14 +110,14 @@
         <div class="row">
           <div class="col">
             <router-link to="/"
-              ><button type="button" class="b2">CANCELAR</button></router-link
+            ><button type="button" class="b2">CANCELAR</button></router-link
             >
           </div>
           <div class="col">
             <router-link to="/Productos"
-              ><button type="button" class="b2">
-                SEGUIR COMPRANDO
-              </button></router-link
+            ><button type="button" class="b2">
+              SEGUIR COMPRANDO
+            </button></router-link
             >
           </div>
           <div class="col"><button type="button" class="b3">PAGAR</button></div>
@@ -116,7 +127,6 @@
     <br />
   </div>
 </template>
-
 <script>
 import { mapActions, mapGetters, mapState } from "vuex";
 

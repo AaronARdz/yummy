@@ -18,7 +18,8 @@ export default new Vuex.Store({
         price: "$250.00",
         quantity: 1,
         category: "",
-        img: "pastelaleman.png"
+        img: "pastelaleman.png",
+        link: "",
       },
       {
         id: 2,
@@ -208,8 +209,7 @@ export default new Vuex.Store({
         });
     },
     userLogin({ commit }, user) {
-      auth
-        .signInWithEmailAndPassword(user.email, user.password)
+      auth.signInWithEmailAndPassword(user.email, user.password)
         .then(res => {
           console.log(res);
           const usuario = {
