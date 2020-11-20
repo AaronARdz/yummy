@@ -19,9 +19,7 @@
                 >Agregar al carrito
                 <img class="ml-2 cart" src="@/assets/img/shopcart.png" alt=""> </button>
                   <a :href="cake.link">
-                    <button class="btn_ btn-blue mt-2 mb-4 ml-auto"
-                    >Realidad Aumentada
-                      <img class="ml-2 cart" src="@/assets/img/AR.png" width="40" height="40"> </button>
+                    Realidad Aumentada
                   </a>
             </div>        
           </div>
