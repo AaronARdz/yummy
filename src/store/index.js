@@ -95,7 +95,8 @@ export default new Vuex.Store({
     },
     shoppingCart: [],
     carrito: [],
-    text: ""
+    text: "",
+    isSubmitted: false,
   },
   mutations: {
     setUser(state, payload) {
@@ -112,9 +113,22 @@ export default new Vuex.Store({
     },
     setPastel(state, payload) {
       state.pastel = payload;
-    }
+    },
+    setSubmitted(state, payload){
+      state.isSubmitted = payload
+    },
   },
   actions: {
+    addContact({commit}, contact) {
+      commit('loadFirebase', true);
+        db.collection('contacto').add({
+          contact: contact
+        })
+        .then(() => {
+            commit('loadFirebase', false);
+            commit('setSubmitted', true);
+        })
+    },
     finder({ state }, payload) {
       console.log(payload);
       state.text = payload.toLowerCase();

@@ -1,14 +1,8 @@
 <template>
-  <div class="container mt-4">
-    <div class="buscar">
-      <p>BUSCA TU FAVORITO</p>
-      <div class="busqueda">
-        <textarea rows="1" cols="130"></textarea>
-      </div>
-        <div class="row">
+  <div class="container mt-4">      
+        <div class="row mt-2">
             <app-images :cake="pastel" v-for="pastel in pasteles" :key="pastel.id"></app-images>
         </div>
-    </div>
   </div>
 </template>
 

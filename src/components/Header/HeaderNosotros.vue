@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 col-lg-6">
         <div class="align-middle text-center">
           <div class="mt-5 ">
             <div class="w-100 header__text mt-5">
@@ -10,8 +10,8 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6">
-        <div class="text-center mb-4">
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="mb-4 mx-auto" :class="{'text-center' : !isMobile}">
           <img src="../../assets/img/logo.png" alt="" style="max-width: 100%" />
         </div>
       </div>
@@ -25,6 +25,17 @@ export default {
     return {
       hover: false
     };
+  },
+  created() {
+        this.windowWidth = window.innerWidth;
+        window.addEventListener("resize", () => {
+        this.windowWidth = window.innerWidth;
+      });
+    },
+  computed: {
+        isMobile() {
+        return this.windowWidth <= 768;
+    }
   }
 };
 </script>

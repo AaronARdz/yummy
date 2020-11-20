@@ -1,5 +1,5 @@
 <template>
-      <div class="col-4 col-md-4 mobile-margin-top" >
+      <div class="col-12 col-md-4 col-lg-4 mobile-margin-top" >
           <div class="producto-pastel mt-4" >
             <div class="text-center">
                 <img :src="require(`@/assets/img/pasteles/${cake.img}`)"  alt="" class="img__services mx-auto">

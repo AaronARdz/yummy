@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-4">
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-md-6 col-lg-6">
         <h1>Misión</h1>
         <p>
           Estar siempre presente en cualquier momento que un consumidor guste
@@ -9,7 +9,7 @@
           un postre.
         </p>
       </div>
-      <div class="col">
+      <div class="col-12 col-md-6 col-lg-6">
         <h1>Visión</h1>
         <p>
           Ser una empresa altamente reconocida a nivel estatal, por el sabor,
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "Mision"
+  name: "Mision",
 };
 </script>
 

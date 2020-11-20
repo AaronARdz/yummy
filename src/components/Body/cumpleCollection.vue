@@ -36,7 +36,7 @@
 export default {
     data() {
         return {
-            desktopMargin: 'mt-4'
+            desktopMargin: 'mt-4',
         }
     },
     created() {

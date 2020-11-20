@@ -1,15 +1,15 @@
 <template>
   <div class="container mt-4">
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-md-6 col-lg-6">
         <h1>Fundación</h1>
         <p>
           Nuestra pastelería se fundo en 2020 en la Ciudad de Monterrey, Nuevo León, México.
           Comenzo como un pequeño sueño de un repostero de abrir su propia pastelería.
         </p>
       </div>
-      <div class="col">
-        <img class="cerro" src="../../assets/img/cerro.jpg" alt="logo Technobit" />
+      <div class="col-12 col-md-6 col-lg-6">
+        <img class="cerro" :class="{ 'mb-4' : isMobile}" src="../../assets/img/cerro.jpg" alt="t" />
       </div>
     </div>
   </div>
@@ -17,8 +17,19 @@
 
 <script>
 export default {
-  name: "Fundacion"
-};
+    name: "Fundacion",
+    created() {
+        this.windowWidth = window.innerWidth;
+        window.addEventListener("resize", () => {
+        this.windowWidth = window.innerWidth;
+      });
+    },
+     computed: {
+        isMobile() {
+        return this.windowWidth <= 768;
+    }
+  }
+  }
 </script>
 
 <style scoped>
@@ -36,7 +47,7 @@ p{
   margin-bottom: 100px;
 }
 .cerro{
-  margin-top: 40px;
+  margin-top: 30px;
   width: 400px;
   height: 250px;
 }
