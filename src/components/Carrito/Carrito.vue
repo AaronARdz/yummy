@@ -123,10 +123,14 @@
             <router-link to="/Productos"
               ><button type="button" class="b2">
                 SEGUIR COMPRANDO
-              </button></router-link
-            >
+              </button></router-link>
           </div>
-          <div class="col-12 col-md-4 col-lg-4"><button type="button" class="b3">PAGAR</button></div>
+          <div class="col-12 col-md-4 col-lg-4">
+            <router-link to="/tyc"
+            ><button type="button" class="b3">
+              PAGAR
+            </button></router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -142,7 +146,7 @@ export default {
   components: {},
   data() {
     return {
-      windowWidth: ''
+      windowWidth: '',
     }
   },
   computed: {
@@ -161,6 +165,7 @@ export default {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
         sum += parseFloat(this.carritoArray[i].quantity);
+
       }
       return sum;
     },
