@@ -11,13 +11,16 @@
       <div class="container mt-4">
         <div class="row">
           <div class="col">
-            <h2>PRODUCTOS</h2>
+            <h2 v-if="!isMobile">Productos</h2>
+            <p v-if="isMobile" class="text-muted">Productos</p>
           </div>
           <div class="col">
-            <h2>CANTIDAD</h2>
+            <h2 v-if="!isMobile">Cantidad</h2>
+            <p v-if="isMobile" class="text-muted">Cantidad</p>
           </div>
           <div class="col">
-            <h2>PRECIO</h2>
+            <h2 v-if="!isMobile">Precio</h2>
+            <p v-if="isMobile" class="text-muted">Precio</p>
           </div>
           <div class="col">
 
@@ -27,21 +30,24 @@
           <div class="col">
             <div>
               <p  class="d-inline">{{ pastel.name }}</p>
+              <hr class="my-4">
             </div>
           </div>
           <div class="col">
             <div>
               <p>{{ pastel.quantity }}</p>
+              <hr class="my-4">
             </div>
           </div>
           <div class="col">
             <div >
               <p>${{ pastel.price.replace("$","") * pastel.quantity }}</p>
+              <hr class="my-4">
             </div>
           </div>
           <div class="col">
             <router-link to="/auth">
-              <button  class="d-inline btn_ btn-delete ml-2" @click="deletePastel(pastel.id)">x</button>
+              <button  class="d-inline btn_ btn-delete ml-2" @click="deleteCake(pastel)">x</button>
             </router-link>
           </div>
         </div>
@@ -108,19 +114,26 @@
     <div>
       <div class="container mt-4">
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-md-4 col-lg-4">
             <router-link to="/"
             ><button type="button" class="b2">CANCELAR</button></router-link
             >
           </div>
-          <div class="col">
+          <div class="col-12 col-md-4 col-lg-4">
             <router-link to="/Productos"
             ><button type="button" class="b2">
               SEGUIR COMPRANDO
             </button></router-link
             >
           </div>
-          <div class="col"><button type="button" class="b3">PAGAR</button></div>
+
+          <div class="col-12 col-md-4 col-lg-4">
+            <router-link to="/tyc"
+            ><button type="button" class="b3">
+              Pagar
+            </button></router-link
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -129,15 +142,17 @@
 </template>
 <script>
 import { mapActions, mapGetters, mapState } from "vuex";
-
 export default {
   name: "CarritoLleno",
   components: {},
-
+  data() {
+    return {
+      windowWidth: ''
+    }
+  },
   computed: {
     ...mapState(["user", "carrito", "shoppingCart", "pastel"]),
     ...mapGetters(["carritoArray"]),
-
     totalItem() {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
@@ -145,14 +160,16 @@ export default {
       }
       return sum;
     },
-
     totalQty() {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
         sum += parseFloat(this.carritoArray[i].quantity);
       }
       return sum;
-    }
+    },
+    isMobile() {
+      return this.windowWidth <= 768;
+    },
   },
   methods: {
     ...mapActions([
@@ -163,11 +180,19 @@ export default {
       "getPastel",
       "deletePastel"
     ]),
-    created() {
-      this.getPasteles();
-      this.deletePastel();
-    }
-  }
+    deleteCake(pastel) {
+      this.carritoArray.splice(this.carritoArray.indexOf(pastel), 1);
+      this.deletePastel(pastel.id)
+      //remove one element starting from the element 'fruit'
+    },
+  },
+  created() {
+    this.getPasteles();
+    this.windowWidth = window.innerWidth;
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
+  },
 };
 </script>
 <style scoped>
@@ -189,7 +214,6 @@ input {
 li {
   text-align: left;
 }
-
 .b1 {
   height: 44px;
   width: 134.37208557128906px;
@@ -198,7 +222,6 @@ li {
   border-radius: 30.5px;
   background: #d9a371;
 }
-
 .b2 {
   height: 44px;
   width: 200px;
@@ -207,7 +230,6 @@ li {
   border-radius: 30.5px;
   background: #d9a371;
 }
-
 .b3 {
   height: 44px;
   width: 134.37208557128906px;
