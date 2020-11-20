@@ -1,7 +1,7 @@
 <template>
     <div class="container">
          <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-12">
                 <div class="text-absolute-one">
                     <div class="text-center">
                         <br>
@@ -13,7 +13,7 @@
                     </div> 
                 </div>
             </div>
-            <div class="col-md-4 mobile-margin-top">
+            <div class="col-md-4 col-12 mobile-margin-top">
                 <div class="text-absolute-two">
                     <div class="text-center">
                         <br>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mobile-margin-top">
+            <div class="col-md-4 col-12 mobile-margin-top">
                 <div class="text-absolute-three">
                     <div class="text-center">
                     <br>

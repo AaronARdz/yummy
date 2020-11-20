@@ -1,12 +1,12 @@
 <template>
 <div class="container">
     <div class="row">
-        <div class="col-md-6 text-center">
-            <div style="height: 400px" class="mt-4">
+        <div class="col-md-6 col-12 text-center">
+            <div style="height: 400px" :class="{ 'mt-4' : !isMobile}">
                 <img class="pastel" src="../../assets/img/p-cumpleanos.png" alt="">
             </div>
         </div>
-        <div class="col-md-6 text-center align-self-center">
+        <div class="col-md-6 col-12 text-center align-self-center" v-if="!isMobile">
             <div style="height: 400px" class="mt-4">
                <img class="pastel" src="../../assets/img/pastel1.png" alt="">
             </div>
@@ -34,6 +34,22 @@
 <script>
 
 export default {
+    data() {
+        return {
+            desktopMargin: 'mt-4'
+        }
+    },
+    created() {
+    this.windowWidth = window.innerWidth;
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
+  },
+    computed: {
+        isMobile() {
+        return this.windowWidth <= 768;
+    }
+  }
 
 }
 </script>

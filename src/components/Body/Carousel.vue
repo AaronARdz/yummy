@@ -44,7 +44,7 @@
         </button>
 
     </div>
-<div class="mt-5">
+<div class="mt-1">
     <transition enter-active-class="animate__animated animate__lightSpeedInRight"
                 leave-active-class="animate__animated animate__lightSpeedOutLeft"
                 mode="out-in">
