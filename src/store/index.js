@@ -19,7 +19,7 @@ export default new Vuex.Store({
         quantity: 1,
         category: "",
         img: "pastelaleman.png",
-        link: "https://www.instagram.com/ar/127420302239475",
+        link: "https://www.instagram.com/ar/2748783252101879",
       },
       {
         id: 2,
@@ -28,7 +28,7 @@ export default new Vuex.Store({
         price: "$275.00",
         category: "",
         img: "mostachon.png",
-        link: "https://www.instagram.com/ar/127420302239475",
+        link: "https://www.instagram.com/ar/1574372392749414",
       },
       {
         id: 3,
@@ -37,7 +37,7 @@ export default new Vuex.Store({
         price: "$280.00",
         category: "",
         img: "diplomatico.png",
-        link: "https://www.instagram.com/ar/127420302239475",
+        link: "https://www.instagram.com/ar/1020019978517800",
       },
       {
         id: 4,
@@ -46,7 +46,7 @@ export default new Vuex.Store({
         price: "$295.00",
         category: "",
         img: "paytortuga.png",
-        link: "https://www.instagram.com/ar/127420302239475",
+        link: "https://www.instagram.com/ar/371932794070630",
       },
       {
         id: 5,
@@ -64,7 +64,7 @@ export default new Vuex.Store({
         price: "$275.00",
         category: "",
         img: "pastel1.png",
-        link: "https://www.instagram.com/ar/127420302239475",
+        link: "https://www.instagram.com/ar/695063864731618",
       },
       {
         id: 7,
@@ -73,7 +73,7 @@ export default new Vuex.Store({
         price: "$50.00",
         category: "",
         img: "pastel2.png",
-        link: "https://www.instagram.com/ar/127420302239475",
+        link: "https://www.instagram.com/ar/1110124509420206",
       },
       {
         id: 8,
@@ -101,7 +101,7 @@ export default new Vuex.Store({
       category: "",
       price: "",
       img: "",
-      lin: "",
+      link: "",
     },
     shoppingCart: [],
     carrito: [],
