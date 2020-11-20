@@ -13,11 +13,16 @@
             </p>
                 <label for="quantity">Quantity</label>
                 <input :placeholder="cake.quantity" v-model="cantidad" >
-                <div >
+                <div>
                 <button class="btn_ btn-blue mt-2 mb-4 ml-auto"
                 @click="addCantidad(cake)"
                 >Agregar al carrito
                 <img class="ml-2 cart" src="@/assets/img/shopcart.png" alt=""> </button>
+                  <a :href="cake.lin">
+                    <button class="btn_ btn-blue mt-2 mb-4 ml-auto"
+                    >Realidad Aumentada
+                      <img class="ml-2 cart" src="@/assets/img/AR.png" width="40" height="40"> </button>
+                  </a>
             </div>        
           </div>
         </div>
@@ -34,6 +39,7 @@ export default {
       category: '',
       price: '',
       img: '',
+      lin: '',
     },
   },
   name: "imagenesProductos",
@@ -45,8 +51,9 @@ export default {
   methods: {
     ...mapActions(['addPastel']),
       addCantidad(pastel) {
-      this.pastel = pastel
-      this.pastel.quantity = this.cantidad
+      this.pastel = pastel,
+      this.pastel.quantity = this.cantidad,
+      this.lin = this.link,
       this.addPastel(pastel)
         alert("Se agrego el producto al carrito");
     }

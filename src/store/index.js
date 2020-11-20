@@ -19,7 +19,7 @@ export default new Vuex.Store({
         quantity: 1,
         category: "",
         img: "pastelaleman.png",
-        link: "",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 2,
@@ -27,7 +27,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$275.00",
         category: "",
-        img: "mostachon.png"
+        img: "mostachon.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 3,
@@ -35,7 +36,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$280.00",
         category: "",
-        img: "diplomatico.png"
+        img: "diplomatico.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 4,
@@ -43,7 +45,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$295.00",
         category: "",
-        img: "paytortuga.png"
+        img: "paytortuga.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 5,
@@ -51,7 +54,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$305.00",
         category: "",
-        img: "rollomango.png"
+        img: "rollomango.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 6,
@@ -59,7 +63,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$275.00",
         category: "",
-        img: "pastel1.png"
+        img: "pastel1.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 7,
@@ -67,7 +72,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$50.00",
         category: "",
-        img: "pastel2.png"
+        img: "pastel2.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 8,
@@ -75,7 +81,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$50.00",
         category: "",
-        img: "pastel3.png"
+        img: "pastel3.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 9,
@@ -83,7 +90,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$450.00",
         category: "",
-        img: "p-boda.png"
+        img: "p-boda.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       }
     ],
     pastel: {
@@ -92,7 +100,8 @@ export default new Vuex.Store({
       quantity: 1,
       category: "",
       price: "",
-      img: ""
+      img: "",
+      lin: "",
     },
     shoppingCart: [],
     carrito: [],
