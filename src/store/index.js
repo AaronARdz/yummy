@@ -18,7 +18,8 @@ export default new Vuex.Store({
         price: "$250.00",
         quantity: 1,
         category: "",
-        img: "pastelaleman.png"
+        img: "pastelaleman.png",
+        link: "",
       },
       {
         id: 2,
