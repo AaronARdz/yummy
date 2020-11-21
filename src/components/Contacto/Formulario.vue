@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-3">
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6 mt-3">
         <img class="icon" src="../../assets/img/fb-white.png"/>
         <h4>Facebook <br> @pasteleriaYummy</h4>
         <img class="icon" src="../../assets/img/location-white.png"/>
@@ -13,7 +13,7 @@
         <img class="icon" src="../../assets/img/twitter-white.png"/>
         <h4>Twitter <br>@yummy_pasteleria</h4>
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6 Contacto rounded ">
          <div class="text-center mx-auto mt-5 clearfix " v-if="loading">
             <p>Cargando...</p>
             <div class="text-center">
@@ -26,8 +26,7 @@
           <h2 class="text-lighter text-center">Gracias, pronto nos pondremos en contacto.</h2>
         </div>
         <form v-if="!isSubmitted" >
-        <h4 class="text-lighter">¿Como te podemos contactar?</h4>
-        <div class="form-row mt-4">
+         <div class="form-row mt-4">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Nombre:</label>
             <input type="text" class="form-control" required placeholder="Tu nombre"
@@ -63,9 +62,7 @@
               ></textarea>
             </div>
         </div>
-        <div class="form-row">
-        </div>
-        <div class="form-row">
+        <div class="text-center">
         <div class="form-group">
           <div class="">
               <button 
@@ -128,14 +125,13 @@ h4{
 }
 .Contacto{
   width: 600px;
-  height: 350px;
+  height: 400px;
   background-image: url("../../assets/img/bg.png");
   margin-top: 50px;
   margin-bottom: 100px;
 }
-.Labels{
-  margin-left: 40px;
-  width: 500px;
+label{
+  color:whitesmoke;
 }
 input, textarea {
       padding: 10px 10px!important;
@@ -177,6 +173,14 @@ input, textarea {
       .hidden__image {
         display: none;
       }
+
+      .Contacto{
+        height: 580px;
+        background-image: url("../../assets/img/bg.png");
+        margin-top: 50px;
+        margin-bottom: 100px;
+      }
     }
+
 
 </style>
