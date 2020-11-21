@@ -48,7 +48,7 @@ p{
 }
 .cerro{
   margin-top: 30px;
-  width: 400px;
+  width: 350px;
   height: 250px;
 }
 </style>

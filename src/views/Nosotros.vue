@@ -44,6 +44,5 @@ export default {
   background-color: #D9A371;
 }
 .diferencia{
-  background-image: url("../assets/img/backgrounddif.png");
 }
 </style>

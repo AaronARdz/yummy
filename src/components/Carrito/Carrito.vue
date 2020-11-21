@@ -129,7 +129,7 @@
 
           <div class="col-12 col-md-4 col-lg-4">
             <router-link to="/tyc"
-            ><button type="button" class="b3">
+            ><button type="button" class="b3" v-if="totalItem>0">
               Pagar
             </button></router-link
             >
@@ -150,6 +150,8 @@ export default {
       windowWidth: ''
     }
   },
+
+
   computed: {
     ...mapState(["user", "carrito", "shoppingCart", "pastel"]),
     ...mapGetters(["carritoArray"]),
@@ -171,6 +173,7 @@ export default {
       return this.windowWidth <= 768;
     },
   },
+
   methods: {
     ...mapActions([
       "logout",
