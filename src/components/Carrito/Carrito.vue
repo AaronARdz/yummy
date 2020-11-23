@@ -47,7 +47,7 @@
           </div>
           <div class="col">
             <router-link to="/auth">
-              <button  class="d-inline btn_ btn-delete ml-2" @click="deleteCake(pastel)">x</button>
+              <button  class="d-inline btn_ btn-delete ml-2" @click="deleteCake(pastel)" @mouseup="getCake">x</button>
             </router-link>
           </div>
         </div>
@@ -155,6 +155,7 @@ export default {
   computed: {
     ...mapState(["user", "carrito", "shoppingCart", "pastel"]),
     ...mapGetters(["carritoArray"]),
+
     totalItem() {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
@@ -188,6 +189,10 @@ export default {
       this.deletePastel(pastel.id)
       //remove one element starting from the element 'fruit'
     },
+
+    getCake() {
+      setTimeout(this.getPasteles, 200);
+    }
   },
   created() {
     this.getPasteles();
