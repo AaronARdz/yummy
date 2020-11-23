@@ -10,6 +10,8 @@ import AuthHome from "@/components/Auth/AuthHome.vue";
 import tyc from "@/components/Pago/tyc";
 import datosfacturacion from "@/components/Pago/datosfacturacion";
 import datosdepago from "@/components/Pago/datosdepago";
+import AvisoPriv from "@/components/Avisos/AvisoPriv";
+import AvisoLegal from "@/components/Avisos/AvisoLegal";
 
 Vue.use(VueRouter);
 
@@ -65,6 +67,16 @@ const routes = [
     path: "/dpago",
     name: "pagos",
     component: datosdepago
+  },
+  {
+    path: "/avisopriv",
+    name: "Aviso de Privacidad",
+    component: AvisoPriv,
+  },
+  {
+    path: "/avisolegal",
+    name: "Aviso Legal",
+    component: AvisoLegal,
   },
   {
     path: "/about",

@@ -2,8 +2,8 @@
     <footer class="page-footer font-small blue bg-dark">
 
         <div class="footer-copyright text-center py-3 text-white">
-            <a class="text-white mr-5" href="">AVISO DE PRIVACIDAD</a>
-            <a class="text-white  mr-5" href="">AVISO  LEGAL</a>
+            <router-link class="text-white  mr-5" to="/avisopriv">AVISO DE PRIVACIDAD</router-link>
+            <router-link class="text-white  mr-5" to="/avisolegal">AVISO LEGAL</router-link>
             © 2020 Copyright:
             <a class="text-white ml-4" > Pasteleria Yummy</a>
             <a class="text-white ml-4" href="https://www.facebook.com/Yummy-Pasteleria-103286231592222" target="_blank"><img src="../../assets/img/fb.png" alt=""></a>
