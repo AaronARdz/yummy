@@ -18,8 +18,9 @@
                 @click="addCantidad(cake)"
                 >Agregar al carrito
                 <img class="ml-2 cart" src="@/assets/img/shopcart.png" alt=""> </button>
+                  <br>
                   <a :href="cake.link">
-                    Realidad Aumentada
+                    Filtro Instagram
                   </a>
             </div>        
           </div>

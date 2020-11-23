@@ -8,7 +8,7 @@
         <h4>Dirección <br> 13, Gonzalitos, 64020 Monterrey, N.L.</h4>
         <img class="icon" src="../../assets/img/phone-white.png"/>
         <h4>Teléfono <br>(81) 2025 2050</h4>
-        <a href="href= https://instagram.com/yummypasteleria.mty?igshid=stxx7947ld54" target="_blank">
+        <a href="https://instagram.com/yummypasteleria.mty?igshid=stxx7947ld54" target="_blank">
           <img class="icon" src="../../assets/img/insta-white.png"/></a>
           <h4>Instagram <br>@yummy_pasteleria</h4>
       </div>
