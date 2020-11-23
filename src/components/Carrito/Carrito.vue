@@ -159,7 +159,7 @@ export default {
     totalItem() {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
-        sum += parseFloat(this.carritoArray[i].price.replace("$", ""));
+        sum += (parseFloat(this.carritoArray[i].price.replace("$", ""))*parseFloat(this.carritoArray[i].quantity));
       }
       return sum;
     },

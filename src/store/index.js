@@ -129,6 +129,17 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    addOrder({commit, state}, order) {
+      commit('loadFirebase', true);
+      db.collection(state.user.email).doc("pasteles").collection("order").add({
+        order: order
+      })
+          .then(() => {
+            commit('loadFirebase', false);
+            commit('setSubmitted', true);
+          })
+    },
+
     addContact({commit}, contact) {
       commit('loadFirebase', true);
         db.collection('contacto').add({
@@ -147,7 +158,7 @@ export default new Vuex.Store({
       commit('loadFirebase', true);
       state.pastel = pastel
       console.log(state.pastel)
-      db.collection(state.user.email).add({
+      db.collection(state.user.email).doc("pasteles").collection("carrito").add({
         pastel : state.pastel
       })
       .then(doc => {
@@ -156,7 +167,7 @@ export default new Vuex.Store({
       })
     },
     deletePastel({state}, id) {
-      db.collection(state.user.email).doc(id).delete()
+      db.collection(state.user.email).doc("pasteles").collection("carrito").doc(id).delete()
       .then(() => {
         console.log('deleted job')
         this.dispatch('getJobs')
@@ -166,7 +177,7 @@ export default new Vuex.Store({
       commit('loadFirebase', true);
       const jobs = []
       console.log(state.user.email + 'email')
-      db.collection(state.user.email).get()
+      db.collection(state.user.email).doc("pasteles").collection("carrito").get()
       .then(res => {
         res.forEach(doc => {
           let job = doc.data().pastel
@@ -181,7 +192,7 @@ export default new Vuex.Store({
     getCarrito({ commit, state }) {
       commit("loadFirebase", true);
       const pasteles = [];
-      db.collection(state.user.email)
+      db.collection(state.user.email).doc("pasteles").collection("carrito")
         .get()
         .then(res => {
           res.forEach(doc => {
@@ -197,7 +208,7 @@ export default new Vuex.Store({
         });
     },
     getPastel({ commit, state }, pastelId) {
-      db.collection(state.user.email)
+      db.collection(state.user.email).doc("pasteles").collection("carrito")
         .doc(pastelId)
         .get()
         .then(doc => {

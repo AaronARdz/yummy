@@ -11,7 +11,7 @@
       <div class="form-row mt-4">
         <div class="form-group col-md-6">
           <label>Concepto:</label>
-          <input type="text" class="form-control" required placeholder="Pasteles que va a comprar">
+          <input type="text" class="form-control" required placeholder="Pasteles que va a comprar" v-model="order.concept">
         </div>
         <div class="form-group col-md-6">
           <label>Pago:<p>{{totalItem}}</p> </label>
@@ -20,21 +20,21 @@
           <div class="form-row">
             <div class="form-group col ">
               <label>Nombre de tarjeta:</label>
-              <input type="text" class="form-control" required placeholder="Nombre de tarjeta">
+              <input type="text" class="form-control" required placeholder="Nombre de tarjeta" v-model="order.name">
             </div>
             <div class="form-group col ">
               <label>Numero de tarjeta:</label>
-              <input type="text" class="form-control" required placeholder="Numero de tarjeta">
+              <input type="text" class="form-control" required placeholder="Numero de tarjeta" v-model="order.number" @keypress="isNumber">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col ">
               <label>Fecha de Expiracion:</label>
-              <input type="date" class="form-control" required placeholder="Nombre de tarjeta">
+              <input type="date" class="form-control" required placeholder="Fecha de expiracion" v-model="order.date">
             </div>
             <div class="form-group col ">
               <label>Numero de Seguridad:</label>
-              <input type="text" class="form-control" required placeholder="Numero de tarjeta">
+              <input type="text" class="form-control" required placeholder="CVV" v-model="order.cvv" @keypress="isNumber">
             </div>
             <div class="form-group col ">
               <label>Tarjeta de:</label>
@@ -56,8 +56,8 @@
               Atras
             </button></router-link>
           </div><div class="col">
-          <router-link to="/dpago">
-            <button type="button" class="b3">
+          <router-link to="/">
+            <button type="button" class="b3" @click="alert" @mouseup="addOrder(order)" v-if="order.number && order.concept && order.name && order.date && order.cvv">
               Siguiente
             </button></router-link>
         </div>
@@ -84,6 +84,14 @@ export default {
   data() {
     return {
       Carrito: Carrito,
+      hover: false,
+      order: {
+        concept: '',
+        name: '',
+        number: '',
+        cvv: '',
+        date: '',
+      }
     }
   },
   computed: {
@@ -109,8 +117,23 @@ export default {
       "finder",
       "getPasteles",
       "getPastel",
-      "deletePastel"
+      "deletePastel",
+      "addOrder"
     ]),
+
+    isNumber: function (evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault();
+        ;
+      } else {
+        return true;
+      }
+    },
+    alert(){
+      alert("Gracias por comprar con nosotros, tu orden fue agregada")
+    },
 
     created() {
       this.getPasteles();
