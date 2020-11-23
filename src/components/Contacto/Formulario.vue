@@ -2,16 +2,15 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6 mt-3">
-        <img class="icon" src="../../assets/img/fb-white.png"/>
+        <a href="https://www.facebook.com/Yummy-Pasteleria-103286231592222" target="_blank"><img class="icon" src="../../assets/img/fb-white.png"/></a>
         <h4>Facebook <br> @pasteleriaYummy</h4>
-        <img class="icon" src="../../assets/img/location-white.png"/>
+        <a href="https://goo.gl/maps/RhLMaFzZF9vEixpz8" target="_blank"><img class="icon" src="../../assets/img/location-white.png"/></a>
         <h4>Dirección <br> 13, Gonzalitos, 64020 Monterrey, N.L.</h4>
         <img class="icon" src="../../assets/img/phone-white.png"/>
         <h4>Teléfono <br>(81) 2025 2050</h4>
-        <img class="icon" src="../../assets/img/insta-white.png"/>
-        <h4>Instagram <br>@yummy_pasteleria</h4>
-        <img class="icon" src="../../assets/img/twitter-white.png"/>
-        <h4>Twitter <br>@yummy_pasteleria</h4>
+        <a href="href= https://instagram.com/yummypasteleria.mty?igshid=stxx7947ld54" target="_blank">
+          <img class="icon" src="../../assets/img/insta-white.png"/></a>
+          <h4>Instagram <br>@yummy_pasteleria</h4>
       </div>
       <div class="col-12 col-md-6 col-lg-6 Contacto rounded ">
          <div class="text-center mx-auto mt-5 clearfix " v-if="loading">
