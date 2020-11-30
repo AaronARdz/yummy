@@ -57,7 +57,8 @@
             </button></router-link>
           </div><div class="col">
           <router-link to="/">
-            <button type="button" class="b3" @click="alert" @mouseup="addOrder(order)" v-if="order.number && order.concept && order.name && order.date && order.cvv">
+            <button type="button" class="b3" @click="alert" @mouseup="addOrder(order)"
+                    v-if="order.number && order.concept && order.name && order.date && order.cvv">
               Siguiente
             </button></router-link>
         </div>
@@ -101,7 +102,7 @@ export default {
     totalItem() {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
-        sum += parseFloat(this.carritoArray[i].price.replace("$", ""));
+        sum += (parseFloat(this.carritoArray[i].price.replace("$", ""))*parseFloat(this.carritoArray[i].quantity));
       }
       return sum;
     },
