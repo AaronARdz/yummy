@@ -18,7 +18,8 @@ export default new Vuex.Store({
         price: "$250.00",
         quantity: 1,
         category: "",
-        img: "pastelaleman.png"
+        img: "pastelaleman.png",
+        link: "https://www.instagram.com/ar/2748783252101879",
       },
       {
         id: 2,
@@ -26,7 +27,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$275.00",
         category: "",
-        img: "mostachon.png"
+        img: "mostachon.png",
+        link: "https://www.instagram.com/ar/1574372392749414",
       },
       {
         id: 3,
@@ -34,7 +36,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$280.00",
         category: "",
-        img: "diplomatico.png"
+        img: "diplomatico.png",
+        link: "https://www.instagram.com/ar/1020019978517800",
       },
       {
         id: 4,
@@ -42,7 +45,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$295.00",
         category: "",
-        img: "paytortuga.png"
+        img: "paytortuga.png",
+        link: "https://www.instagram.com/ar/371932794070630",
       },
       {
         id: 5,
@@ -50,7 +54,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$305.00",
         category: "",
-        img: "rollomango.png"
+        img: "rollomango.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 6,
@@ -58,7 +63,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$275.00",
         category: "",
-        img: "pastel1.png"
+        img: "pastel1.png",
+        link: "https://www.instagram.com/ar/695063864731618",
       },
       {
         id: 7,
@@ -66,7 +72,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$50.00",
         category: "",
-        img: "pastel2.png"
+        img: "pastel2.png",
+        link: "https://www.instagram.com/ar/1110124509420206",
       },
       {
         id: 8,
@@ -74,7 +81,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$50.00",
         category: "",
-        img: "pastel3.png"
+        img: "pastel3.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       },
       {
         id: 9,
@@ -82,7 +90,8 @@ export default new Vuex.Store({
         quantity: 1,
         price: "$450.00",
         category: "",
-        img: "p-boda.png"
+        img: "p-boda.png",
+        link: "https://www.instagram.com/ar/127420302239475",
       }
     ],
     pastel: {
@@ -91,7 +100,8 @@ export default new Vuex.Store({
       quantity: 1,
       category: "",
       price: "",
-      img: ""
+      img: "",
+      link: "",
     },
     shoppingCart: [],
     carrito: [],
@@ -119,6 +129,17 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    addOrder({commit, state}, order) {
+      commit('loadFirebase', true);
+      db.collection(state.user.email).doc("pasteles").collection("order").add({
+        order: order
+      })
+          .then(() => {
+            commit('loadFirebase', false);
+            commit('setSubmitted', true);
+          })
+    },
+
     addContact({commit}, contact) {
       commit('loadFirebase', true);
         db.collection('contacto').add({
@@ -137,7 +158,7 @@ export default new Vuex.Store({
       commit('loadFirebase', true);
       state.pastel = pastel
       console.log(state.pastel)
-      db.collection(state.user.email).add({
+      db.collection(state.user.email).doc("pasteles").collection("carrito").add({
         pastel : state.pastel
       })
       .then(doc => {
@@ -146,7 +167,7 @@ export default new Vuex.Store({
       })
     },
     deletePastel({state}, id) {
-      db.collection(state.user.email).doc(id).delete()
+      db.collection(state.user.email).doc("pasteles").collection("carrito").doc(id).delete()
       .then(() => {
         console.log('deleted job')
         this.dispatch('getJobs')
@@ -156,7 +177,7 @@ export default new Vuex.Store({
       commit('loadFirebase', true);
       const jobs = []
       console.log(state.user.email + 'email')
-      db.collection(state.user.email).get()
+      db.collection(state.user.email).doc("pasteles").collection("carrito").get()
       .then(res => {
         res.forEach(doc => {
           let job = doc.data().pastel
@@ -171,7 +192,7 @@ export default new Vuex.Store({
     getCarrito({ commit, state }) {
       commit("loadFirebase", true);
       const pasteles = [];
-      db.collection(state.user.email)
+      db.collection(state.user.email).doc("pasteles").collection("carrito")
         .get()
         .then(res => {
           res.forEach(doc => {
@@ -187,7 +208,7 @@ export default new Vuex.Store({
         });
     },
     getPastel({ commit, state }, pastelId) {
-      db.collection(state.user.email)
+      db.collection(state.user.email).doc("pasteles").collection("carrito")
         .doc(pastelId)
         .get()
         .then(doc => {

@@ -7,6 +7,11 @@ import Contacto from "@/views/Contacto";
 import Carrito from "@/views/Carrito";
 import User from "@/views/User";
 import AuthHome from "@/components/Auth/AuthHome.vue";
+import tyc from "@/components/Pago/tyc";
+import datosfacturacion from "@/components/Pago/datosfacturacion";
+import datosdepago from "@/components/Pago/datosdepago";
+import AvisoPriv from "@/components/Avisos/AvisoPriv";
+import AvisoLegal from "@/components/Avisos/AvisoLegal";
 
 Vue.use(VueRouter);
 
@@ -47,6 +52,31 @@ const routes = [
     path: "/auth",
     name: "auth",
     component: AuthHome
+  },
+  {
+    path: "/tyc",
+    name: "terminos y condiciones",
+    component: tyc
+  },
+  {
+    path: "/dfact",
+    name: "facturacion",
+    component: datosfacturacion
+  },
+  {
+    path: "/dpago",
+    name: "pagos",
+    component: datosdepago
+  },
+  {
+    path: "/avisopriv",
+    name: "Aviso de Privacidad",
+    component: AvisoPriv,
+  },
+  {
+    path: "/avisolegal",
+    name: "Aviso Legal",
+    component: AvisoLegal,
   },
   {
     path: "/about",

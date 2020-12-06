@@ -2,8 +2,8 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
-        <h1>Fundación</h1>
-        <p>
+        <h1 class="text-center">Fundación</h1>
+        <p class="text-center">
           Nuestra pastelería se fundo en 2020 en la Ciudad de Monterrey, Nuevo León, México.
           Comenzo como un pequeño sueño de un repostero de abrir su propia pastelería.
         </p>
@@ -48,7 +48,7 @@ p{
 }
 .cerro{
   margin-top: 30px;
-  width: 400px;
+  width: 350px;
   height: 250px;
 }
 </style>

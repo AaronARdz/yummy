@@ -46,9 +46,9 @@
             </div>
           </div>
           <div class="col">
-             <router-link to="/auth">
-              <button  class="d-inline btn_ btn-delete ml-2" @click="deleteCake(pastel)">x</button>
-              </router-link>
+            <router-link to="/auth">
+              <button  class="d-inline btn_ btn-delete ml-2" @click="deleteCake(pastel)" @mouseup="getCake">x</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -116,27 +116,32 @@
         <div class="row">
           <div class="col-12 col-md-4 col-lg-4">
             <router-link to="/"
-              ><button type="button" class="b2">CANCELAR</button></router-link
+            ><button type="button" class="b2">CANCELAR</button></router-link
             >
           </div>
           <div class="col-12 col-md-4 col-lg-4">
             <router-link to="/Productos"
-              ><button type="button" class="b2">
-                SEGUIR COMPRANDO
-              </button></router-link
+            ><button type="button" class="b2">
+              SEGUIR COMPRANDO
+            </button></router-link
             >
           </div>
-          <div class="col-12 col-md-4 col-lg-4"><button type="button" class="b3">PAGAR</button></div>
+
+          <div class="col-12 col-md-4 col-lg-4">
+            <router-link to="/tyc"
+            ><button type="button" class="b3" v-if="totalItem>0">
+              Pagar
+            </button></router-link
+            >
+          </div>
         </div>
       </div>
     </div>
     <br />
   </div>
 </template>
-
 <script>
 import { mapActions, mapGetters, mapState } from "vuex";
-
 export default {
   name: "CarritoLleno",
   components: {},
@@ -145,6 +150,8 @@ export default {
       windowWidth: ''
     }
   },
+
+
   computed: {
     ...mapState(["user", "carrito", "shoppingCart", "pastel"]),
     ...mapGetters(["carritoArray"]),
@@ -152,11 +159,10 @@ export default {
     totalItem() {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
-        sum += parseFloat(this.carritoArray[i].price.replace("$", ""));
+        sum += (parseFloat(this.carritoArray[i].price.replace("$", ""))*parseFloat(this.carritoArray[i].quantity));
       }
       return sum;
     },
-
     totalQty() {
       let sum = 0;
       for (let i = 0; i < this.carritoArray.length; i++) {
@@ -165,9 +171,10 @@ export default {
       return sum;
     },
     isMobile() {
-        return this.windowWidth <= 768;
+      return this.windowWidth <= 768;
     },
   },
+
   methods: {
     ...mapActions([
       "logout",
@@ -178,15 +185,19 @@ export default {
       "deletePastel"
     ]),
     deleteCake(pastel) {
-        this.carritoArray.splice(this.carritoArray.indexOf(pastel), 1);
-        this.deletePastel(pastel.id)
-        //remove one element starting from the element 'fruit'
-      },
+      this.carritoArray.splice(this.carritoArray.indexOf(pastel), 1);
+      this.deletePastel(pastel.id)
+      //remove one element starting from the element 'fruit'
+    },
+
+    getCake() {
+      setTimeout(this.getPasteles, 200);
+    }
   },
   created() {
-      this.getPasteles();
-      this.windowWidth = window.innerWidth;
-      window.addEventListener("resize", () => {
+    this.getPasteles();
+    this.windowWidth = window.innerWidth;
+    window.addEventListener("resize", () => {
       this.windowWidth = window.innerWidth;
     });
   },
@@ -211,7 +222,6 @@ input {
 li {
   text-align: left;
 }
-
 .b1 {
   height: 44px;
   width: 134.37208557128906px;
@@ -220,7 +230,6 @@ li {
   border-radius: 30.5px;
   background: #d9a371;
 }
-
 .b2 {
   height: 44px;
   width: 200px;
@@ -229,7 +238,6 @@ li {
   border-radius: 30.5px;
   background: #d9a371;
 }
-
 .b3 {
   height: 44px;
   width: 134.37208557128906px;

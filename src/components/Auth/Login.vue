@@ -1,40 +1,35 @@
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col">
-        <h1>Iniciar sesion</h1><br>
-        <form @submit.prevent="userLogin({email:login.email, password:login.pass})">
-            <div class="form-group">
-                <label for="username">Correo Electronico</label>
-                <input class="sizebox form-control" type="text" placeholder="Ingresa tu correo" v-model="login.email">
-
-                <label for="password">pass</label>
-                <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña" v-model="login.pass">
-                <br>
-                <button type="submit" class="btn_ btn-black">Acceder</button>
-            </div>
-        </form>
-      </div>
+  <div class="container">
+    <br><br>
       <div class="row">
-        <div class="col">
-          <h1>Registrarse</h1><br>
-            <form  @submit.prevent="createUser({email: email, password: pass1})">
-                <div class="form-group">
-                    <label for="username">Correo Electronico</label>
-                    <input class="sizebox form-control" type="text" placeholder="Ingresa tu correo" v-model="email">
-
-                    <label for="password">pass</label>
-                    <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña" v-model="pass1">
-
-                    <label for="password">confirm pass</label>
-                    <input class="sizebox form-control" type="password" placeholder="Ingresa tu contraseña" v-model="pass2">
-                    <br>
-                    <button type="submit" class="btn_ btn-black" :disabled='!disable'>Registrarse </button>
-                </div>
-            </form>
-          </div>
+        <div class="col-sm-6">
+          <form @submit.prevent="userLogin({email:login.email, password:login.pass})">
+            <div class="container">
+              <h1>Iniciar sesion</h1><br>
+              <label for="username">Correo Electronico</label>
+              <input class="input-group input-group-sm mb-3" type="text" placeholder="Ingresa tu correo" v-model="login.email">
+              <label for="password">pass</label>
+              <input class="input-group input-group-sm mb-3" type="password" placeholder="Ingresa tu contraseña" v-model="login.pass">
+              <button type="submit" class="btn_ btn-black">Acceder</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <form  @submit.prevent="createUser({email: email, password: pass1})">
+            <div class="container">
+              <h1>Registrarse</h1><br>
+              <label for="username">Correo Electronico</label>
+              <input class="input-group input-group-sm mb-3" type="text" placeholder="Ingresa tu correo" v-model="email">
+              <label for="password">pass</label>
+              <input class="input-group input-group-sm mb-3" type="password" placeholder="Ingresa tu contraseña" v-model="pass1">
+              <label for="password">confirm pass</label>
+              <input class="input-group input-group-sm mb-3" type="password" placeholder="Ingresa tu contraseña" v-model="pass2">
+              <button type="submit" class="btn_ btn-black" :disabled='!disable'>Registrarse </button>
+              <br><br><br><br>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     <p class="text-danger">{{error}}</p>
       <div class="row">
         <div class="col">
@@ -83,36 +78,14 @@ p{
 }
 
 h1 {
-  text-align: center;
-  margin-top: 30px;
-  margin-left: 65px;
+  margin-top: 20px;
   color: #d9a371;
 }
 .text-aqua p {
   color: var(--aqua) !important;
 }
-.sizebox{
-  width: 450px;
-}
 
-.form-group label {
-  margin-right: auto!important;
-}
-input, textarea {
-  padding: 10px 10px!important;
-  margin: 2px 0;
-  font-size: .9em;
-}
+@media screen and (max-width: 500px){
 
-.background{
-  width: 600px;
-  height: 450px;
-  margin-bottom: 100px;
-}
-.form-group{
-  margin-left: 70px;
-}
-.text{
-  margin-right: 70px;
 }
 </style>
